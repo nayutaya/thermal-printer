@@ -7,18 +7,22 @@ import click
 def main(ctx):
     if ctx.invoked_subcommand is None:
         print(ctx.get_help())
-    else:
-        print("gonna invoke %s" % ctx.invoked_subcommand)
 
-@main.command(help="description 1")
-@click.argument("target", required=False)
-def subcommand1(target):
-    print("sub command 1")
+@main.command(help="print text")
+@click.argument("device")
+@click.argument("text")
+def text(device, text):
+    print("text command")
+    print("device:", device)
+    print("text:", text)
 
-@main.command(help="description 2")
-@click.argument("target", required=False)
-def subcommand2(target):
-    print("sub command 2")
+@main.command(help="print image")
+@click.argument("device")
+@click.argument("path")
+def image(device, path):
+    print("image command")
+    print("device:", device)
+    print("path:", path)
 
 if __name__ == "__main__":
     main()
