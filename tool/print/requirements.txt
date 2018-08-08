@@ -1,0 +1,1 @@
+python-escpos==2.2.0
