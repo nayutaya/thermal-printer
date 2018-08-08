@@ -10,5 +10,5 @@ RUN apt-get update \
     zlib1g-dev \
   && rm -rf /var/lib/apt/lists/*
 
-#COPY requirements.txt /root/
-#RUN pip3 install -r /root/requirements.txt
+COPY requirements.txt /root/
+RUN pip3 install -r /root/requirements.txt
