@@ -25,6 +25,9 @@ def text(device, text):
 def image(device, path):
     print("device:", device)
     print("path:", path)
+    printer = escpos.printer.Serial(device)
+    printer.image(path)
+    printer.cut()
 
 if __name__ == "__main__":
     main()
