@@ -5,5 +5,10 @@
 ```sh
 cd tool/print/
 ./build_image.sh
-docker run --interactive --tty --rm ${USER}/thermal-printer/tool/print /bin/bash
+./run_bash.sh
+```
+
+```sh
+/root/main.py text $(ls /dev/ttyACM* | head -n 1) "Hello World"
+/root/main.py image $(ls /dev/ttyACM* | head -n 1) /root/hello.png
 ```
