@@ -12,3 +12,8 @@ RUN apt-get update \
 
 COPY requirements.txt /root/
 RUN pip3 install -r /root/requirements.txt
+
+COPY main.py /root/
+
+ENV LC_ALL C.UTF-8
+ENV LANG C.UTF-8

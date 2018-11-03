@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import click
+import escpos.printer
 
 @click.group(invoke_without_command=True)
 @click.pass_context
@@ -12,15 +13,16 @@ def main(ctx):
 @click.argument("device")
 @click.argument("text")
 def text(device, text):
-    print("text command")
     print("device:", device)
     print("text:", text)
+    printer = escpos.printer.Serial(device)
+    printer.text(text)
+    printer.cut()
 
 @main.command(help="print image")
 @click.argument("device")
 @click.argument("path")
 def image(device, path):
-    print("image command")
     print("device:", device)
     print("path:", path)
 
