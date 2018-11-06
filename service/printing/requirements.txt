@@ -1,0 +1,4 @@
+Flask-Cors==3.0.6
+Flask==1.0.2
+python-escpos==2.2.0
+uWSGI==2.0.17.1
