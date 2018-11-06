@@ -1,5 +1,5 @@
 
-class PrinterMock:
+class MockPrinter:
     def __init__(self):
         pass
 
