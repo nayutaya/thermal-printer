@@ -23,3 +23,11 @@ docker run --interactive --tty --rm \
 ```sh
 FLASK_APP=/workspace/src/app.py FLASK_ENV=development flask run --host=0.0.0.0 --port=8080
 ```
+
+```sh
+curl \
+  --request POST \
+  --header "Content-Type: image/png" \
+  --data-binary @hello.png \
+  http://localhost:8080/print
+```
