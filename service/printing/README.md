@@ -2,7 +2,6 @@
 
 ## タスク
 
-* [ ] ポート番号を変更する。
 * [ ] `README.md`を整理する。
 
 ## 運用モード
@@ -19,7 +18,7 @@ cd service/printing
 cd service/printing
 ./build_image.sh
 docker run --interactive --tty --rm \
-  --publish 8080:8080 \
+  --publish 3030:8080 \
   --volume $(pwd):/workspace \
   thermal-printer/service/printing \
   /bin/bash
@@ -36,5 +35,5 @@ curl \
   --request POST \
   --header "Content-Type: image/png" \
   --data-binary @hello.png \
-  http://localhost:8080/print
+  http://localhost:3030/print
 ```
