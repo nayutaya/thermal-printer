@@ -14,3 +14,12 @@ RUN pip3 install --upgrade pip
 
 COPY requirements.txt /root/
 RUN pip3 install -r /root/requirements.txt
+
+COPY src /root/src/
+
+ENV LC_ALL C.UTF-8
+ENV LANG C.UTF-8
+
+EXPOSE 8080
+WORKDIR /root/src
+CMD ["uwsgi", "--module=app", "--callable=app", "--http=:8080"]
