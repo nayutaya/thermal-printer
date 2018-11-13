@@ -21,8 +21,8 @@ COPY package-lock.json /root/
 RUN cd /root/ \
   && npm install
 
-#COPY src/ /root/src/
-#
-#EXPOSE 8080
-#WORKDIR /root/
-#CMD ["npm", "start"]
+COPY src/ /root/src/
+
+EXPOSE 8080
+WORKDIR /root/
+CMD ["npm", "start"]
