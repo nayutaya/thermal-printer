@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GitHub Printer</title>
+    <script src="lib/jquery-3.3.1.min.js"></script>
+    <style type="text/css">
+      .title { font-size: 20px; color: #666666; }
+      .content input { font-size: 20px; width: 530px; }
+      .form button { padding: 5px 20px; font-size: 20px; }
+      .content a { text-decoration: none; font-size: 18px; color: #999999; }
+      .content a:hover { color: #3366FF; }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="title">Plain style:</div>
+      <div class="content">
+        <input id="title_plain" type="text" value="">
+        <a href="#" id="copy_title_plain">Copy</a>
+      </div>
+      <div class="title">Comment style:</div>
+      <div class="content">
+        <input id="title_comment" type="text" value="">
+        <a href="#" id="copy_title_comment">Copy</a>
+      </div>
+      <div class="title">Markdown style:</div>
+      <div class="content">
+        <input id="title_markdown" type="text" value="">
+        <a href="#" id="copy_title_markdown">Copy</a>
+      </div>
+    </div>
+    <div style="height: 10px;"></div>
+    <div>
+      <div>
+        Rendering Service Endpoint URL:
+        <input id="rendering_service_endpoint_url" type="text" value="http://raspi-3bp.local:3031">
+      </div>
+      <div>
+        Printing Service Endpoint URL:
+        <input id="printing_service_endpoint_url" type="text" value="http://raspi-3bp.local:3030">
+      </div>
+      <div class="form">
+        <button id="preview_button">1. Preview</button>
+        <button id="print_button">2. Print</button>
+      </div>
+    </div>
+    <div style="height: 10px;"></div>
+    <div style="width: 600px">
+      <img id="preview_image" style="border: 1px #666666 solid;">
+    </div>
+    <script src="js/popup.js"></script>
+  </body>
+</html>
