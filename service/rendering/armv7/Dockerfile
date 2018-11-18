@@ -34,4 +34,4 @@ COPY src/ /root/src/
 EXPOSE 8080
 WORKDIR /root/
 ENTRYPOINT ["/bin/bash", "--login", "-c"]
-CMD ["npm", "start"]
+CMD ["npm start"]
