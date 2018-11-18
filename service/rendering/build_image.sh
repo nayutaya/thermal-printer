@@ -5,4 +5,4 @@ cd -- `dirname -- $0`
 docker build \
   --file Dockerfile \
   --tag ${IMAGE_NAME} \
-  ..
+  .
