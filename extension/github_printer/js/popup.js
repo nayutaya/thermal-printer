@@ -44,11 +44,13 @@
     if (printTarget == null) return;
     // console.log("preview");
     const renderingServiceEndpointUrl = $("#rendering_service_endpoint_url").val();
-    const renderActionUrl = renderingServiceEndpointUrl + "/render";
+    const renderActionUrl = renderingServiceEndpointUrl + "/render_html";
     const body = {
-      "project": printTarget.repositoryName,
-      "issue_number": printTarget.number,
-      "title": printTarget.title,
+      "width": 576,
+      "html": "<html><body><div style=\"font-size: 64px;\">Hello World<br/>こんにちは世界</div></body></html>",
+      // "project": printTarget.repositoryName,
+      // "issue_number": printTarget.number,
+      // "title": printTarget.title,
     };
     // console.log("body:", body);
     fetch(renderActionUrl, {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)})
@@ -67,7 +69,7 @@
   printButton.click(function() {
     if (imageBlob == null) return;
     // console.log("print");
-    const printServiceEndpointUrl = $("#print_service_endpoint_url").val();
+    const printServiceEndpointUrl = $("#printing_service_endpoint_url").val();
     const printActionUrl = printServiceEndpointUrl + "/print";
     fetch(printActionUrl, {method: "POST", headers: {"Content-Type": imageBlob.type}, body: imageBlob})
       .then(function(response) {
