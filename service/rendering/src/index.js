@@ -2,7 +2,7 @@
 const bodyParser = require("body-parser");
 const cors       = require("cors");
 const express    = require("express");
-const puppeteer  = require("puppeteer");
+const puppeteer  = require("puppeteer-core");
 const tmp        = require("tmp");
 
 const app = express();
@@ -20,7 +20,7 @@ app.get("/", (req, res, next) => {
 });
 
 (async () => {
-  const browser = await puppeteer.launch({args: ["--no-sandbox"]});
+  const browser = await puppeteer.launch({executablePath: "/usr/bin/chromium-browser", args: ["--no-sandbox"]});
 
   app.options("/render_html", cors());
   app.post("/render_html", (req, res, next) => {

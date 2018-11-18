@@ -23,3 +23,15 @@ RUN apt-get update \
 RUN anyenv install nodenv
 RUN nodenv install 10.13.0 \
   && nodenv global 10.13.0
+
+COPY package.json /root/
+COPY package-lock.json /root/
+RUN cd /root/ \
+  && npm install
+
+COPY src/ /root/src/
+
+EXPOSE 8080
+WORKDIR /root/
+ENTRYPOINT ["/bin/bash", "--login", "-c"]
+CMD ["npm", "start"]
