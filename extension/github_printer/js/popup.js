@@ -48,7 +48,11 @@
     var html = "";
     html += "<html>";
     html += "<body>";
-    html += "<div style=\"font-size: 32px;\">" + printTarget.repositoryName + " #" + String(printTarget.number) + "</div>";
+    html += "<div style=\"font-size: 32px;\">" + printTarget.repositoryName;
+    if      (printTarget.type === "issue"        ) html += " Issue#" + String(printTarget.number);
+    else if (printTarget.type === "pull_request" ) html += " PR#" + String(printTarget.number);
+    else if (printTarget.type === "merge_request") html += " MR!" + String(printTarget.number);
+    html += "</div>"
     html += "<div style=\"font-size: 60px;\">" + printTarget.title + "</div>";
     html += "</body>";
     html += "</html>";
