@@ -45,12 +45,16 @@
     // console.log("preview");
     const renderingServiceEndpointUrl = $("#rendering_service_endpoint_url").val();
     const renderActionUrl = renderingServiceEndpointUrl + "/render_html";
+    var html = "";
+    html += "<html>";
+    html += "<body>";
+    html += "<div style=\"font-size: 32px;\">" + printTarget.repositoryName + " #" + String(printTarget.number) + "</div>";
+    html += "<div style=\"font-size: 60px;\">" + printTarget.title + "</div>";
+    html += "</body>";
+    html += "</html>";
     const body = {
       "width": 576,
-      "html": "<html><body><div style=\"font-size: 64px;\">Hello World<br/>こんにちは世界</div></body></html>",
-      // "project": printTarget.repositoryName,
-      // "issue_number": printTarget.number,
-      // "title": printTarget.title,
+      "html": html,
     };
     // console.log("body:", body);
     fetch(renderActionUrl, {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)})
