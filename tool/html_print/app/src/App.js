@@ -85,7 +85,7 @@ export default class App extends React.Component {
       <div className="App">
         <AppBar position="static" color="default">
           <Toolbar variant="dense">
-            <Typography variant="title" color="inherit">Thermal Printing</Typography>
+            <Typography variant="title" color="inherit">Thermal Printer</Typography>
           </Toolbar>
         </AppBar>
 
