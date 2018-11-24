@@ -1,4 +1,4 @@
-FROM node:9.10
+FROM node:10.13
 
 RUN npm install --global serve
 
