@@ -10,7 +10,7 @@ Environment=IMAGE_NAME=thermal-printer/service/rendering
 Environment=CONTAINER_NAME=thermal-printer_service_rendering
 ExecStartPre=-/usr/bin/docker stop ${CONTAINER_NAME}
 ExecStartPre=-/usr/bin/docker rm   ${CONTAINER_NAME}
-ExecStart=docker run \
+ExecStart=/usr/bin/docker run \
   --publish 3031:8080 \
   --name ${CONTAINER_NAME} \
   ${IMAGE_NAME}
