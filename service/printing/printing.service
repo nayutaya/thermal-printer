@@ -1,0 +1,21 @@
+[Unit]
+Description=Printing Service
+Documentation=https://github.com/nayutaya/thermal-printer/blob/master/service/printing/README.md
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=simple
+Environment=IMAGE_NAME=thermal-printer/service/printing
+Environment=CONTAINER_NAME=thermal-printer_service_printing
+ExecStartPre=-/usr/bin/docker stop ${CONTAINER_NAME}
+ExecStartPre=-/usr/bin/docker rm   ${CONTAINER_NAME}
+ExecStart=/bin/sh -c "/usr/bin/docker run \
+  --publish 3030:8080 \
+  --env TTY_DEVICE=$(ls /dev/ttyACM* | head -n 1) \
+  --device $(ls /dev/ttyACM* | head -n 1) \
+  --name ${CONTAINER_NAME} \
+  ${IMAGE_NAME}"
+
+[Install]
+WantedBy=multi-user.target
