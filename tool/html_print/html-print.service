@@ -1,0 +1,19 @@
+[Unit]
+Description=HTML Print Service
+Documentation=https://github.com/nayutaya/thermal-printer/blob/master/tool/html_print/README.md
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=simple
+Environment=IMAGE_NAME=thermal-printer/tool/html_print
+Environment=CONTAINER_NAME=thermal-printer_tool_html_print
+ExecStartPre=-/usr/bin/docker stop ${CONTAINER_NAME}
+ExecStartPre=-/usr/bin/docker rm   ${CONTAINER_NAME}
+ExecStart=docker run \
+  --publish 3032:8080 \
+  --name ${CONTAINER_NAME} \
+  ${IMAGE_NAME}
+
+[Install]
+WantedBy=multi-user.target
