@@ -1,13 +1,13 @@
 {
   "name": "rendering-service",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Yuya Kato",
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",
-    "nodemon": "^1.17.3",
-    "puppeteer-core": "^1.10.0",
+    "nodemon": "^1.18.7",
+    "puppeteer-core": "^1.11.0",
     "tmp": "0.0.33"
   },
   "license": "MIT",
