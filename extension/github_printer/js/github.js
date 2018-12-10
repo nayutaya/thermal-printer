@@ -12,7 +12,7 @@
       const repositoryName        = (userAndRepositoryName != null ? userAndRepositoryName.split("/")[1] : null);
       if (userAndRepositoryName == null || userName == null || repositoryName == null) return;
 
-      const title  = $("span.js-issue-title").text().trim();
+      const title  = $("h1.gh-header-title span.js-issue-title").text().trim();
       const number = parseInt($("span.gh-header-number").text().trim().replace(/^#/, ""));
       if (title == "" || number == null) return;
 
