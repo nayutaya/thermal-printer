@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
-IMAGE_NAME=thermal-printer/service/printing
-CONTAINER_NAME=thermal-printer_service_printing
+cd -- `dirname -- $0`
+source ./env.sh
 TTY_DEVICE_NAME=$(ls /dev/ttyACM* | head -n 1)
 docker stop ${CONTAINER_NAME} || true
 docker rm   ${CONTAINER_NAME} || true
