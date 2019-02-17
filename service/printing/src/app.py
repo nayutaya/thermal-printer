@@ -7,6 +7,7 @@ import flask
 import flask_cors
 
 import printer.mock
+import printer.network
 import printer.serial
 
 SERVICE_NAME    = "Printing Service"
@@ -15,16 +16,24 @@ SERVICE_VERSION = "1.1.0"
 app = flask.Flask(__name__)
 flask_cors.CORS(app)
 
-tty_device = os.environ.get("TTY_DEVICE")
-if tty_device:
-    printer = printer.serial.SerialPrinter(device=tty_device)
+printer_type   = os.environ.get("PRINTER_TYPE")
+printer_device = os.environ.get("PRINTER_DEVICE")
+printer_host   = os.environ.get("PRINTER_HOST")
+printer_port   = os.environ.get("PRINTER_PORT")
+if printer_type == "SERIAL":
+    printer = printer.serial.SerialPrinter(device=printer_device)
+elif printer_type == "NETWORK":
+    printer = printer.network.NetworkPrinter(host=printer_host, port=int(printer_port))
 else:
     printer = printer.mock.MockPrinter()
 
 printer.print_text(SERVICE_NAME + "\n")
-printer.print_text("Version: " + SERVICE_VERSION + "\n")
-printer.print_text("Device: " + str(tty_device) + "\n")
-printer.print_text("Time: " + datetime.datetime.now().isoformat() + "\n")
+printer.print_text("Version: "        + SERVICE_VERSION     + "\n")
+printer.print_text("Printer Type: "   + str(printer_type)   + "\n")
+printer.print_text("Printer Device: " + str(printer_device) + "\n")
+printer.print_text("Printer Host: "   + str(printer_host)   + "\n")
+printer.print_text("Printer Port: "   + str(printer_port)   + "\n")
+printer.print_text("Time: "           + datetime.datetime.now().isoformat() + "\n")
 printer.cut_paper()
 
 @app.route("/")
