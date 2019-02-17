@@ -11,7 +11,7 @@ import printer.network
 import printer.serial
 
 SERVICE_NAME    = "Printing Service"
-SERVICE_VERSION = "1.1.0"
+SERVICE_VERSION = "2.0.0"
 
 app = flask.Flask(__name__)
 flask_cors.CORS(app)
