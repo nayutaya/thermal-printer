@@ -12,4 +12,4 @@ class NetworkPrinter:
         self.printer.image(file)
 
     def cut_paper(self):
-        self.printer.cut()
+        self.printer.cut(mode="PART")
