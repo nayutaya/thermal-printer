@@ -1,0 +1,2 @@
+IMAGE_NAME=thermal-printer/service/printing
+CONTAINER_NAME=thermal-printer_service_printing
