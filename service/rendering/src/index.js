@@ -40,6 +40,8 @@ app.get("/", (req, res, next) => {
       await body.screenshot({
         path: temporaryFile.name,
         type: "png",
+      }).catch((error) => {
+        console.error("screenshot: error:", error);
       });
       await page.close();
 
