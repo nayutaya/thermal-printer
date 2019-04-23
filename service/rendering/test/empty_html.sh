@@ -1,6 +1,7 @@
 #!/bin/bash
 set -eu
 API_ENDPOINT=http://localhost:3031
+cd -- `dirname -- $0`
 curl \
   --request POST \
   --header "Content-Type: application/json" \
