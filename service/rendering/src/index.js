@@ -42,6 +42,9 @@ app.get("/", (req, res, next) => {
         type: "png",
       }).catch((error) => {
         console.error("screenshot: error:", error);
+        res.status(500).json({
+          error: error.message,
+        });
       });
       await page.close();
 
