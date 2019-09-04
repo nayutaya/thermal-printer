@@ -2,6 +2,6 @@
 set -eu
 IMAGE_NAME=thermal-printer/tool/html_print
 cd -- `dirname -- $0`
-docker build \
+docker image build --pull \
   --tag ${IMAGE_NAME} \
   .

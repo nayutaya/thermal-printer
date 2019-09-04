@@ -1,12 +1,13 @@
 FROM ubuntu:18.04
 
 RUN apt-get update \
-  && apt-get install --yes --no-install-recommends \
+  && DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends \
     build-essential \
     libjpeg-dev \
     python3-dev \
     python3-pip \
     python3-setuptools \
+    tzdata \
     zlib1g-dev \
   && rm -rf /var/lib/apt/lists/*
 
@@ -19,6 +20,7 @@ COPY src /root/src/
 
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
+ENV TZ Asia/Tokyo
 
 EXPOSE 8080
 WORKDIR /root/src
