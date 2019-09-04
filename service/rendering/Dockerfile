@@ -1,12 +1,13 @@
 FROM ubuntu:18.04
 
 RUN apt-get update \
-  && apt-get install --yes --no-install-recommends \
+  && DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends \
     ca-certificates \
     chromium-browser \
     fonts-ipaexfont \
     fonts-ipafont \
     git \
+    tzdata \
     wget \
   && rm -rf /var/lib/apt/lists/*
 
@@ -25,6 +26,8 @@ RUN cd /root/ \
   && npm install
 
 COPY src/ /root/src/
+
+ENV TZ Asia/Tokyo
 
 EXPOSE 8080
 WORKDIR /root/
