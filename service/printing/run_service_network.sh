@@ -2,9 +2,9 @@
 set -eu
 cd -- `dirname -- $0`
 source ./env.sh
-docker stop ${CONTAINER_NAME} || true
-docker rm   ${CONTAINER_NAME} || true
-docker run --detach \
+docker container stop ${CONTAINER_NAME} || true
+docker container rm   ${CONTAINER_NAME} || true
+docker container run --detach \
   --publish 3030:8080 \
   --env PRINTER_TYPE=NETWORK \
   --env PRINTER_HOST \
