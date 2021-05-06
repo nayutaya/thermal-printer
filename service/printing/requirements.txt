@@ -1,4 +1,4 @@
-Flask-Cors==3.0.8
+Flask-Cors==3.0.9
 Flask==1.1.1
 python-escpos==3.0a6
 uWSGI==2.0.18
