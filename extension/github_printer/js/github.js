@@ -10,10 +10,12 @@
       const userAndRepositoryName = $("meta[name='octolytics-dimension-repository_nwo']").attr("content");
       const userName              = (userAndRepositoryName != null ? userAndRepositoryName.split("/")[0] : null);
       const repositoryName        = (userAndRepositoryName != null ? userAndRepositoryName.split("/")[1] : null);
+      // console.log({userAndRepositoryName, userName, repositoryName}); // DEBUG:
       if (userAndRepositoryName == null || userName == null || repositoryName == null) return;
 
-      const title  = $("h1.gh-header-title span.js-issue-title").text().trim();
+      const title  = $("h1.gh-header-title bdi.js-issue-title").text().trim();
       const number = parseInt($("span.gh-header-number").text().trim().replace(/^#/, ""));
+      // console.log({title, number}); // DEBUG:
       if (title == "" || number == null) return;
 
       const selectedLink = $("meta[name='selected-link']").attr("value");
