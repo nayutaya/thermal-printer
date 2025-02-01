@@ -13,8 +13,8 @@
       // console.log({userAndRepositoryName, userName, repositoryName}); // DEBUG:
       if (userAndRepositoryName == null || userName == null || repositoryName == null) return;
 
-      const title  = $("h1.gh-header-title bdi.js-issue-title").text().trim();
-      const number = parseInt($("span.gh-header-number").text().trim().replace(/^#/, ""));
+      const title  = $("h1 bdi.markdown-title").text().trim();
+      const number = parseInt($("h1 span").text().trim().replace(/^#/, ""));
       // console.log({title, number}); // DEBUG:
       if (title == "" || number == null) return;
 
